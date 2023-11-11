@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const login = async () => {
+    "use server";
     const res = await fetch(
       "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/"
     );
