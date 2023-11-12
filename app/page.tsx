@@ -3,20 +3,16 @@ import { lusitana } from "@/app/ui/fonts";
 import Image from "next/image";
 
 import { Metadata } from "next";
-import LoginBtn from "./ui/login.btn";
+import { useEffect } from "react";
+import { login } from "./lib/actions";
 
 export const metadata: Metadata = {
   title: "Dashboard",
 };
 
-export default function Page() {
-  const login = async () => {
-    "use server";
-    const res = await fetch(
-      "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/"
-    );
-    console.log(res);
-  };
+export default async function Page() {
+  const res = await login();
+  console.log("RESSS", res);
 
   return (
     <main className="flex min-h-screen flex-col p-6">
@@ -34,7 +30,6 @@ export default function Page() {
             </a>
             , brought to you by Vercel.
           </p>
-          <LoginBtn action={login} />
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
