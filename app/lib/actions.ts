@@ -114,8 +114,13 @@ export async function authenticate(
   }
 }
 export async function login() {
-  const res = await fetch(
-    "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/"
-  );
-  console.log(res);
+  try {
+    const res = await fetch(
+      "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/"
+    );
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
 }
