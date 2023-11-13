@@ -3,16 +3,14 @@ import { lusitana } from "@/app/ui/fonts";
 import Image from "next/image";
 
 import { Metadata } from "next";
-import { useEffect } from "react";
-import { login } from "./lib/actions";
 
 export const metadata: Metadata = {
   title: "Dashboard",
 };
 
 export default async function Page() {
-  const res = await login();
-  console.log("RESSS", res);
+  // const res = await login();
+  // console.log("RESSS", res);
 
   return (
     <main className="flex min-h-screen flex-col p-6">
@@ -50,6 +48,13 @@ export default async function Page() {
           {/* <div className={styles.shape}></div> */}
           {/* <div className="h-0 w-0 border-b~-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent" /> */}
         </div>
+        <form
+          action={
+            "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/"
+          }
+        >
+          <button>CLICK ME</button>
+        </form>
       </div>
     </main>
   );

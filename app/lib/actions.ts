@@ -116,7 +116,11 @@ export async function authenticate(
 export async function login() {
   try {
     const res = await fetch(
-      "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/"
+      // "http://localhost:3000/api/login?redirectURL=http://localhost:3001/"
+      "https://walletconnect-test-phi.vercel.app/api/login?redirectURL=https://next-learn-tau-beige.vercel.app/",
+      {
+        method: "POST",
+      }
     );
     console.log(res);
     return res;
